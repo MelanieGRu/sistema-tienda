@@ -1,0 +1,57 @@
+.appshell__boton {
+  color: var(--principal);
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1.2rem 0;
+  font-family: var(--fuente-radio);
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+}
+
+.appshell__boton:hover {
+  margin: 1.05rem 0;
+  border: 0.15rem solid var(--principal);
+}
+
+.appshell__boton__seleccionado {
+  color: var(--blanco);
+  background-color: var(--principal);
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 1.2rem 0;
+  font-family: "Radio Canada", sans-serif;
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+}
+
+.boton__cerrar__sesion {
+  background-color: var(--blanco);
+  color: var(--rojo);
+  border: 0.1rem var(--rojo) solid;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 2rem 0;
+  font-family: "Radio Canada", sans-serif;
+  padding: 0.3rem;
+  border-radius: 0.6rem;
+}
+
+.boton__cerrar__sesion:hover {
+  background-color: var(--rojo);
+  color: var(--blanco);
+  cursor: pointer;
+}
+
+.layout__header {
+  display: flex;
+  padding: 0 1rem;
+  background-color: var(--principal);
+  height: 100%;
+  align-items: center;
+}
+
+.layout__header__texto {
+  font-size: 1.5rem;
+  color: var(--blanco);
+  font-family: var(--fuente-radio);
+}
