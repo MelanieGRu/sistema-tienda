@@ -1,0 +1,22 @@
+.formulario {
+  border: 0.2rem var(--principal) solid;
+  border-radius: 1rem;
+  padding: 1.3rem;
+  max-width: 40rem;
+  margin: auto;
+}
+
+.contenidoForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.contenidoForm > button {
+  max-width: 10rem;
+}
+
+.formulario__titulo {
+  color: var(--principal);
+}
