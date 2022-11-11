@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { useAuth } from '../context/AuthContext';
-import styles from '../styles/Layout.module.css';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { useAuth } from "../context/AuthContext";
+import styles from "../styles/Layout.module.css";
+import Login from "./Login";
 
 import {
   AppShell,
@@ -14,16 +15,21 @@ import {
   Burger,
   useMantineTheme,
   Divider,
-} from '@mantine/core';
+} from "@mantine/core";
 
 const Layout = ({ children }) => {
   // Router para determinar en qué página nos encontramos
-  const router = useRouter();
   const { user, logout } = useAuth();
+  const router = useRouter();
 
   // Variables para la responsividad del AppShell
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
+
+  if (user === null || user == undefined) {
+    return <Login />;
+  }
+
   return (
     <AppShell
       styles={{
@@ -31,21 +37,21 @@ const Layout = ({ children }) => {
           background: theme.colors.gray[0],
         },
       }}
-      navbarOffsetBreakpoint='sm'
-      asideOffsetBreakpoint='sm'
+      navbarOffsetBreakpoint="sm"
+      asideOffsetBreakpoint="sm"
       navbar={
         <Navbar
-          p='md'
-          hiddenBreakpoint='sm'
+          p="md"
+          hiddenBreakpoint="sm"
           hidden={!opened}
           width={{ sm: 200, lg: 300 }}
         >
           {/* Botones del menu en AppShell que
            nos redirigen a otras pantallas */}
-          <Link href='/'>
+          <Link href="/">
             <div
               className={
-                router.pathname === '/'
+                router.pathname === "/"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -54,10 +60,10 @@ const Layout = ({ children }) => {
             </div>
           </Link>
 
-          <Link href='/productos'>
+          <Link href="/productos">
             <div
               className={
-                router.pathname === '/productos'
+                router.pathname === "/productos"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -66,10 +72,10 @@ const Layout = ({ children }) => {
             </div>
           </Link>
 
-          <Link href='/carrito'>
+          <Link href="/carrito">
             <div
               className={
-                router.pathname === '/carrito'
+                router.pathname === "/carrito"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -78,10 +84,10 @@ const Layout = ({ children }) => {
             </div>
           </Link>
 
-          <Link href='/peticiones'>
+          <Link href="/peticiones">
             <div
               className={
-                router.pathname === '/peticiones'
+                router.pathname === "/peticiones"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -90,10 +96,10 @@ const Layout = ({ children }) => {
             </div>
           </Link>
 
-          <Link href='/pedidos'>
+          <Link href="/pedidos">
             <div
               className={
-                router.pathname === '/pedidos'
+                router.pathname === "/pedidos"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -102,10 +108,10 @@ const Layout = ({ children }) => {
             </div>
           </Link>
 
-          <Link href='/cuenta'>
+          <Link href="/cuenta">
             <div
               className={
-                router.pathname === '/cuenta'
+                router.pathname === "/cuenta"
                   ? styles.appshell__boton__seleccionado
                   : styles.appshell__boton
               }
@@ -127,19 +133,19 @@ const Layout = ({ children }) => {
       header={
         <Header height={50}>
           <div className={styles.layout__header}>
-            <MediaQuery largerThan='sm' styles={{ display: 'none' }}>
+            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
               <Burger
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
-                size='sm'
+                size="sm"
                 color={theme.colors.gray[6]}
-                mr='xl'
+                mr="xl"
               />
             </MediaQuery>
             {/* Contenido del header de
             AppShell */}
             <Text className={styles.layout__header__texto}>
-              <Link href='/'>Sistema de Pedidos</Link>
+              <Link href="/">Sistema de Pedidos</Link>
             </Text>
           </div>
         </Header>

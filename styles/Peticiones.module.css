@@ -1,0 +1,32 @@
+.titulo {
+  text-align: center;
+  color: var(--principal);
+}
+
+.form__peticion {
+  border: 0.2rem var(--principal) solid;
+  border-radius: 0.5rem;
+  width: 70%;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.form__label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.form__boton {
+  display: block;
+  margin: auto;
+  font-size: 1.3rem;
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.notificacion {
+  width: max-content;
+  padding: 1rem 2rem;
+  margin: 2rem auto;
+}

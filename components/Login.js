@@ -1,5 +1,5 @@
-import Layout from './Layout';
-import { useForm } from '@mantine/form';
+import Layout from "./Layout";
+import { useForm } from "@mantine/form";
 import {
   NumberInput,
   TextInput,
@@ -7,12 +7,12 @@ import {
   UnstyledButton,
   Notification,
   PasswordInput,
-} from '@mantine/core';
-import styles from '../styles/Login.module.css';
+} from "@mantine/core";
+import styles from "../styles/Login.module.css";
 
-import { useState } from 'react';
-import { IconX } from '@tabler/icons';
-import { useAuth } from '../context/AuthContext';
+import { useState } from "react";
+import { IconX } from "@tabler/icons";
+import { useAuth } from "../context/AuthContext";
 
 const Login = ({ usuarios }) => {
   const { user, login } = useAuth();
@@ -20,23 +20,23 @@ const Login = ({ usuarios }) => {
   const [mensajeError, setMensajeError] = useState(null);
 
   const form = useForm({
-    initialValues: { correo: '', clave: '' },
+    initialValues: { correo: "", clave: "" },
   });
 
   const iniciarSesion = async () => {
     setMensajeError(null);
-    const correo = form.values['correo'];
-    const clave = form.values['clave'];
-    if (correo === '' || clave === '') {
-      setMensajeError('Introducir valores para todos los campos');
+    const correo = form.values["correo"];
+    const clave = form.values["clave"];
+    if (correo === "" || clave === "") {
+      setMensajeError("Introducir valores para todos los campos");
       return;
     }
 
     const entrar = await login(correo, clave);
 
     if (!entrar) {
-      console.log('NO SE ENTRO');
-      setMensajeError('No se pudo ingresar');
+      console.log("NO SE ENTRO");
+      setMensajeError("No se pudo ingresar");
     } else {
       setMensajeError(null);
     }
@@ -50,25 +50,25 @@ const Login = ({ usuarios }) => {
           onSubmit={form.onSubmit(iniciarSesion)}
         >
           <h1 className={styles.formulario__titulo}>
-            Sistema de Control de Inventario
+            Sistema de Pedido de Material
           </h1>
           <p className={styles.formulario__label}>Correo Electrónico</p>
           <TextInput
-            placeholder='Correo electrónico...'
-            type='email'
-            {...form.getInputProps('correo')}
+            placeholder="Correo electrónico..."
+            type="email"
+            {...form.getInputProps("correo")}
           />
           <p className={styles.formulario__label}>Contraseña</p>
           <PasswordInput
-            placeholder='Contraseña...'
-            {...form.getInputProps('clave')}
+            placeholder="Contraseña..."
+            {...form.getInputProps("clave")}
           />
 
           {mensajeError === null ? null : (
             <Notification
               className={styles.notificacion}
               icon={<IconX size={18} />}
-              color='red'
+              color="red"
               disallowClose
             >
               {mensajeError}
@@ -77,8 +77,8 @@ const Login = ({ usuarios }) => {
 
           <UnstyledButton
             className={styles.formulario__boton}
-            type='submit'
-            mt='sm'
+            type="submit"
+            mt="sm"
           >
             Entrar
           </UnstyledButton>
