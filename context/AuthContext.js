@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import axios from "axios";
 import { LoadingOverlay } from "@mantine/core";
+import { setCookie, getCookie, deleteCookie } from "cookies-next";
 
 const AuthContext = createContext({});
 
@@ -9,6 +10,14 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  useEffect(() => {
+    setLoading(true);
+    if (getCookie("usuario") !== undefined) {
+      setUser(JSON.parse(getCookie("usuario")));
+    }
+    setLoading(false);
+  }, []);
+
   const [loading, setLoading] = useState(false);
   console.log(user);
 
@@ -23,10 +32,12 @@ export const AuthContextProvider = ({ children }) => {
       if (
         usuario["correo"] === correo &&
         usuario["clave"] === clave &&
-        usuario["rol"] === "admin"
+        (usuario["rol"] === "cliente" || usuario["rol"] === "admin")
       ) {
+        setCookie("usuario", usuario);
         setUser(usuario);
         entro = true;
+        Router.push("/");
         return;
       }
     });
@@ -37,6 +48,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    deleteCookie("usuario");
     Router.push("/");
   };
 

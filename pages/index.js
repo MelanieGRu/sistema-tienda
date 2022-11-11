@@ -8,12 +8,6 @@ import styles from "../styles/Index.module.css";
 import { useAuth } from "../context/AuthContext";
 
 export default function Home({ usuarios }) {
-  const { user } = useAuth();
-
-  if (user === null) {
-    return <Login usuarios={usuarios} />;
-  }
-
   return (
     <Layout>
       <div className={styles.cuadros}>
