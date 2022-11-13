@@ -14,7 +14,7 @@ export default function Home({ usuarios }) {
         <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/inventario.jpg"
+              src="/assets/img/categorias.jpg"
               width={1920}
               height={1080}
               alt="Norway"

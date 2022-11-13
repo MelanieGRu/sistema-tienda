@@ -1,0 +1,41 @@
+.titulo {
+  text-align: center;
+  color: var(--principal);
+}
+
+.cuadro__cuenta {
+  border: 0.2rem var(--principal) solid;
+  border-radius: 0.5rem;
+  width: 40rem;
+  margin: auto;
+  padding: 0 1.5rem;
+}
+
+.cuadro__dato__label {
+  font-family: var(--fuente-radio);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.boton {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-left: 1rem;
+  color: rgb(0, 0, 255);
+}
+
+.boton__cambiar {
+  display: block;
+  background-color: var(--principal);
+  color: white;
+  font-size: 1.3rem;
+  padding: 0.2rem 1.4rem;
+  margin: 1rem auto;
+
+  border-radius: 0.3rem;
+}
