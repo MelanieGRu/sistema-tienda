@@ -1,0 +1,113 @@
+.pedido {
+  border-radius: 0.5rem;
+  width: 70%;
+  margin: 1rem auto;
+  padding: 1rem;
+}
+
+.pedido__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pedido__boton {
+  padding: 0 3rem;
+  margin: 0 0.5rem;
+}
+
+.pedido__fecha {
+  font-weight: bold;
+}
+
+.pedido__datos__titulo {
+  font-weight: bold;
+  margin: 0;
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+.pedido__info {
+  margin: 0.2rem 0;
+}
+
+.pedido__comentario {
+  border: 0.1rem black solid;
+  padding: 0.4rem;
+  font-style: italic;
+}
+
+.pedido__datos__usuario {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 0.1rem black solid;
+}
+
+.estado {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.pedido__producto {
+  margin: 0;
+}
+
+.modal__boton {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0 2rem;
+}
+
+.titulo {
+  color: var(--principal);
+  font-size: 3rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+@media (max-width: 1530px) {
+  .pedido {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1380px) {
+  .pedido {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .pedido {
+    width: 95%;
+  }
+}
+
+@media (max-width: 900px) {
+  .pedido {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pedido__header {
+    flex-direction: column;
+  }
+
+  .pedido__botones {
+    margin-bottom: 1rem;
+  }
+
+  .pedido__datos__usuario {
+    justify-content: space-around;
+  }
+
+  .pedido__datos__usuario {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .pedido__boton {
+    margin: 0.2rem 0.1rem;
+  }
+}
