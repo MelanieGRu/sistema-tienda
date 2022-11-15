@@ -1,8 +1,3 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import Router from 'next/router';
-import axios from 'axios';
-import { LoadingOverlay } from '@mantine/core';
-
 const AuthContext = createContext({});
 
 export const useAuth = () => useContext(AuthContext);
