@@ -16,7 +16,7 @@ import {
   Divider,
 } from '@mantine/core';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, setProductoInfo }) => {
   // Router para determinar en qué página nos encontramos
   const router = useRouter();
   const { user, logout } = useAuth();

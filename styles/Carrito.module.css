@@ -1,0 +1,12 @@
+.main {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.campos {
+  max-width: 50rem;
+  margin: 3rem auto;
+}
+
+.textarea {
+  width: 30rem;
+}

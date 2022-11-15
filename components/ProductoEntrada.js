@@ -12,10 +12,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { IconPlus } from '@tabler/icons';
 import styles from '../styles/ProductoEntrada.module.css';
+import { useAuth } from '../context/AuthContext';
+import { crearProductoCarrito } from '../helpers';
+import axios from 'axios';
 
 const ProductoEntrada = ({ producto }) => {
-  const [cantidad, setCantidad] = useState(0);
   const { nombre, id, stock, imagen } = producto;
+  const { guardarProducto, productoInfo, pro, setPro } = useAuth();
 
   const form = useForm({
     initialValues: { cantidad: 0 },
@@ -25,6 +28,19 @@ const ProductoEntrada = ({ producto }) => {
         value === 0 ? 'Esta pidiendo 0 de este producto' : null,
     },
   });
+
+  const { cantidad } = form.values;
+
+  const agregarCarrito = () => {
+    const productoTemp = {
+      nombre: nombre,
+      id_producto: id,
+      imagen: imagen,
+      cantidad: cantidad,
+    };
+    crearProductoCarrito(productoTemp);
+  };
+
   return (
     <div>
       <Card shadow='sm' p='md' radius='md' withBorder>
@@ -32,7 +48,8 @@ const ProductoEntrada = ({ producto }) => {
           <Image
             width={290}
             height={150}
-            src={`http://localhost:1337${imagen.url}`}
+            alt={`Icono de ${producto['nombre']}`}
+            src={`/../public/images/${producto['imagen']}`}
           />
         </Card.Section>
 
@@ -40,7 +57,7 @@ const ProductoEntrada = ({ producto }) => {
           <Text weight={500}>{nombre}</Text>
         </Group>
 
-        <form onSubmit={form.onSubmit(console.log)}>
+        <form onSubmit={form.onSubmit(agregarCarrito)}>
           <Group>
             <NumberInput
               size='xs'
