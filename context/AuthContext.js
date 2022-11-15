@@ -1,3 +1,9 @@
+import { createContext, useContext, useEffect, useState } from 'react';
+import Router from 'next/router';
+import axios from 'axios';
+import { LoadingOverlay } from '@mantine/core';
+import { setCookie, getCookie, deleteCookie } from 'cookies-next';
+
 const AuthContext = createContext({});
 
 export const useAuth = () => useContext(AuthContext);
@@ -18,7 +24,7 @@ export const AuthContextProvider = ({ children }) => {
       if (
         usuario['correo'] === correo &&
         usuario['clave'] === clave &&
-        usuario['rol'] === 'admin'
+        (usuario['rol'] === 'cliente' || usuario['rol'] === 'admin')
       ) {
         setUser(usuario);
         entro = true;
