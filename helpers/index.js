@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import Router from 'next/router';
 
@@ -17,4 +18,17 @@ export const eliminarProductoCarrito = (id) => {
   axios.delete(`http://localhost:1337/carritos/${id}`).then(() => {
     Router.push('/carrito');
   });
+
+export const formatearFecha = (fecha) => {
+  const fechaNueva = new Date(fecha);
+
+  const opciones = {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  };
+
+  return fechaNueva.toLocaleDateString("es-ES", opciones);
 };
