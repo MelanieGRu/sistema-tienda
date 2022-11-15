@@ -1,0 +1,4 @@
+.producto {
+  border: solid 1px var(--principal);
+  padding: 0.8rem;
+}

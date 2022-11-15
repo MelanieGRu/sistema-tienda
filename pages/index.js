@@ -14,10 +14,13 @@ export default function Home({ usuarios }) {
         <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/categorias.jpg"
-              width={1920}
-              height={1080}
-              alt="Norway"
+
+              src='/img/productos.jpg'
+              width={1000}
+              height={1000}
+              alt='Norway'
+
+
             />
           </Card.Section>
 
@@ -39,10 +42,10 @@ export default function Home({ usuarios }) {
         <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/categorias.jpg"
-              width={1920}
-              height={1080}
-              alt="Norway"
+              src='/img/carrito.png'
+              width={1000}
+              height={1000}
+              alt='Norway'
             />
           </Card.Section>
 
@@ -64,10 +67,10 @@ export default function Home({ usuarios }) {
         <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/pedidos.jpg"
-              width={1920}
-              height={1080}
-              alt="Norway"
+              src='/img/peticiones.jpg'
+              width={1000}
+              height={1000}
+              alt='Norway'
             />
           </Card.Section>
 
@@ -89,11 +92,12 @@ export default function Home({ usuarios }) {
         <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/usuarios.jpg"
-              width={1920}
-              height={1080}
-              radius="md"
-              alt="Norway"
+              src='/img/pedidos.jpg'
+              width={1000}
+              height={1000}
+              radius='md'
+              alt='Norway'
+
             />
           </Card.Section>
 
@@ -111,15 +115,14 @@ export default function Home({ usuarios }) {
             </Button>
           </Link>
         </Card>
-
-        <Card className={styles.card} shadow="sm" p="lg" radius="md" withBorder>
+        <Card className={styles.card} shadow='sm' p='lg' radius='md' withBorder>
           <Card.Section>
             <Image
-              src="/assets/img/usuarios.jpg"
-              width={1920}
-              height={1080}
-              radius="md"
-              alt="Norway"
+              src='/img/cuenta.jpg'
+              width={1000}
+              height={1000}
+              radius='md'
+              alt='Norway'
             />
           </Card.Section>
 

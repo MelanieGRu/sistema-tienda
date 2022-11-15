@@ -1,0 +1,29 @@
+.contenedorProducto {
+  background-color: #e9ecef;
+  width: 50rem;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 30% 60%;
+  gap: 10px;
+  border: solid var(--principal) 2px;
+  border-radius: 1rem;
+}
+.productoLogo {
+  background-color: var(--principal);
+  border-radius: 0.8rem;
+  color: var(--blanco);
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formulario button {
+  background-color: var(--principal);
+  color: var(--blanco);
+}
+.formulario input {
+  margin-top: 0.6rem;
+}
