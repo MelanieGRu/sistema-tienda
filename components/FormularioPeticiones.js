@@ -1,15 +1,15 @@
-import { Button, TextInput, Title, Textarea } from '@mantine/core';
-import { useForm } from '@mantine/form';
-import { useAuth } from '../context/AuthContext';
-import styles from '../styles/FormularioPeticiones.module.css';
+import { Button, TextInput, Title, Textarea } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { useAuth } from "../context/AuthContext";
+import styles from "../styles/FormularioPeticiones.module.css";
 
 const FormularioPeticiones = ({ categorias }) => {
   const { crearCategoria } = useAuth();
   const form = useForm({
-    initialValues: { categoria: '' },
+    initialValues: { categoria: "" },
 
     validate: {
-      categoria: (value) => (value === '' ? 'Debe introducir un nombre' : null),
+      categoria: (value) => (value === "" ? "Debe introducir un nombre" : null),
     },
   });
 
@@ -25,24 +25,24 @@ const FormularioPeticiones = ({ categorias }) => {
   return (
     <div>
       <div className={styles.formulario}>
-        <Title className={styles.formulario__titulo} align='center'>
+        <Title className={styles.formulario__titulo} align="center">
           Crear Petición
         </Title>
         <form onSubmit={form.onSubmit(guardarCategoria)}>
           <TextInput
-            label='Título'
-            placeholder='Asunto de la petición'
-            {...form.getInputProps('categoria')}
+            label="Título"
+            placeholder="Asunto de la petición"
+            {...form.getInputProps("categoria")}
           />
           <Textarea
-            placeholder='Motivo de la petición'
-            label='Descripción'
-            radius='md'
+            placeholder="Motivo de la petición"
+            label="Descripción"
+            radius="md"
             minRows={2}
             autosize
           />
           <div className={styles.contenidoForm}>
-            <Button type='submit' mt='sm'>
+            <Button type="submit" mt="sm">
               Enviar
             </Button>
           </div>

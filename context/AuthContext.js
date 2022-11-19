@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useEffect, useState } from "react";
 import Router from "next/router";
 import axios from "axios";
@@ -18,12 +17,13 @@ export const AuthContextProvider = ({ children }) => {
     }
     setLoading(false);
   }, []);
+  console.log(user);
 
   const [loading, setLoading] = useState(false);
   const [pro, setPro] = useState([]);
 
   const login = async (correo, clave) => {
-    const res = await fetch('http://localhost:1337/usuarios');
+    const res = await fetch("http://localhost:1337/usuarios");
     const usuarios = await res.json();
 
     let entro = false;
@@ -31,7 +31,6 @@ export const AuthContextProvider = ({ children }) => {
     // Revisando si existe un usuario con la combinacion de correo y contraseña
     usuarios.forEach(function (usuario) {
       if (
-
         usuario["correo"] === correo &&
         usuario["clave"] === clave &&
         (usuario["rol"] === "cliente" || usuario["rol"] === "admin")
@@ -61,7 +60,7 @@ export const AuthContextProvider = ({ children }) => {
       .then((response) => {
         setUser(nuevosDatos);
         setLoading(false);
-        Router.push('/usuarios');
+        Router.push("/usuarios");
       });
   };
 
@@ -69,30 +68,30 @@ export const AuthContextProvider = ({ children }) => {
     setLoading(true);
     axios.delete(`http://localhost:1337/usuarios/${id}`).then(() => {
       setLoading(false);
-      if (user['id'] === id) {
+      if (user["id"] === id) {
         setUser(null);
-        Router.push('/');
+        Router.push("/");
         return;
       }
-      Router.push('/usuarios');
+      Router.push("/usuarios");
     });
   };
 
   const crearCuenta = (datos) => {
     setLoading(true);
-    axios.post('http://localhost:1337/usuarios', datos).then((response) => {
+    axios.post("http://localhost:1337/usuarios", datos).then((response) => {
       // Recarga la pagina para que se actualize la table de usuarios
       setLoading(false);
-      Router.push('/usuarios');
+      Router.push("/usuarios");
     });
   };
 
   const crearCategoria = (datos) => {
     setLoading(true);
-    axios.post('http://localhost:1337/categorias', datos).then((response) => {
+    axios.post("http://localhost:1337/categorias", datos).then((response) => {
       // Recarga la pagina para que se actualize la table de usuarios
       setLoading(false);
-      Router.push('/categorias');
+      Router.push("/categorias");
     });
   };
 
@@ -108,10 +107,10 @@ export const AuthContextProvider = ({ children }) => {
   const crearProducto = (datos) => {
     setLoading(true);
 
-    axios.post('http://localhost:1337/productos', datos).then((response) => {
+    axios.post("http://localhost:1337/productos", datos).then((response) => {
       // Recarga la pagina para que se actualize la table de usuarios
       setLoading(false);
-      Router.push('/inventario');
+      Router.push("/inventario");
     });
   };
 
@@ -132,9 +131,9 @@ export const AuthContextProvider = ({ children }) => {
     >
       {loading ? (
         <LoadingOverlay
-          loaderProps={{ size: 'sm', color: 'blue', variant: 'bars' }}
+          loaderProps={{ size: "sm", color: "blue", variant: "bars" }}
           overlayOpacity={0.3}
-          overlayColor='#c5c5c5'
+          overlayColor="#c5c5c5"
           visible
         />
       ) : (

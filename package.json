@@ -30,7 +30,8 @@
     "embla-carousel-react": "^7.0.5",
     "next": "13.0.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sweetalert2": "^11.6.9"
   },
   "devDependencies": {
     "eslint": "8.27.0",
