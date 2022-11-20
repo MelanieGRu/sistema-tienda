@@ -1,9 +1,11 @@
 import { Button, Group, Textarea, Title } from "@mantine/core";
 import Layout from "../components/Layout";
+import Router from "next/router";
 import ProductoCarrito from "../components/ProductoCarrito";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "@mantine/form";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { Notification } from "@mantine/core";
 import { IconCheck, IconX } from "@tabler/icons";
 
@@ -11,7 +13,8 @@ import styles from "../styles/Carrito.module.css";
 import { useState } from "react";
 
 const Carrito = ({ productos }) => {
-  const { user } = useAuth();
+  const { user, setMostrarCampana } = useAuth();
+  setMostrarCampana(false);
   const [mostrarError, setMostrarError] = useState("");
 
   if (user) {
@@ -80,9 +83,7 @@ const Carrito = ({ productos }) => {
             `http://localhost:1337/productos/${producto["id_producto"]}`,
             nuevosDatos
           )
-          .then((response) => {
-            console.log("Actualizado");
-          });
+          .then((response) => {});
 
         const pedido_linea = {
           cantidad: producto["cantidad"],
@@ -93,6 +94,23 @@ const Carrito = ({ productos }) => {
         axios
           .post("http://localhost:1337/pedido-lineas/", pedido_linea)
           .then((response) => {});
+
+        axios
+          .delete(`http://localhost:1337/carritos/${producto["id"]}`)
+          .then(() => {});
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `Carrito Enviado`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        setTimeout(function () {
+          form.values["comentario"] = "";
+          Router.push("/carrito");
+        }, 1800);
       });
     }
   };
@@ -101,7 +119,9 @@ const Carrito = ({ productos }) => {
     <div>
       <Layout>
         <div className={styles.main}>
-          <Title align="center">Articulos en tu carrito</Title>
+          <Title className={styles.titulo} align="center">
+            Articulos en tu carrito
+          </Title>
           <div>
             {productos.map((producto, index) => (
               <ProductoCarrito key={producto.id} producto={producto} />
@@ -124,7 +144,7 @@ const Carrito = ({ productos }) => {
           </form>
 
           {mostrarError == "" ? null : (
-            <Notification icon={<IconX size={18} />} color="red">
+            <Notification icon={<IconX size={18} />} disallowClose color="red">
               {mostrarError}
             </Notification>
           )}

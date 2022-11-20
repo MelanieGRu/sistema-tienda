@@ -17,8 +17,8 @@ export const AuthContextProvider = ({ children }) => {
     }
     setLoading(false);
   }, []);
-  console.log(user);
 
+  const [mostrarCampana, setMostrarCampana] = useState(false);
   const [loading, setLoading] = useState(false);
   const [pro, setPro] = useState([]);
 
@@ -127,6 +127,8 @@ export const AuthContextProvider = ({ children }) => {
         crearProducto,
         pro,
         setPro,
+        mostrarCampana,
+        setMostrarCampana,
       }}
     >
       {loading ? (

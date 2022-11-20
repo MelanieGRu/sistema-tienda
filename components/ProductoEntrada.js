@@ -19,7 +19,14 @@ import axios from "axios";
 
 const ProductoEntrada = ({ producto }) => {
   const { nombre, id, stock, imagen } = producto;
-  const { guardarProducto, productoInfo, pro, setPro, user } = useAuth();
+  const {
+    guardarProducto,
+    productoInfo,
+    pro,
+    setPro,
+    user,
+    setMostrarCampana,
+  } = useAuth();
 
   const form = useForm({
     initialValues: { cantidad: 0 },
@@ -41,6 +48,8 @@ const ProductoEntrada = ({ producto }) => {
       usuario_id: user["id"],
     };
     crearProductoCarrito(productoTemp);
+
+    setMostrarCampana(true);
 
     Swal.fire({
       position: "top-end",

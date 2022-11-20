@@ -86,6 +86,7 @@ const Pedido = ({ datos }) => {
     <div className={`${styles.pedido} ${datos["estado"]}`}>
       <div className={styles.pedido__header}>
         <p className={styles.pedido__fecha}>{formatearFecha(datos["fecha"])}</p>
+        <p className={styles.pedido__fecha}>{datos["estado"].toUpperCase()}</p>
       </div>
       <p className={styles.pedido__datos__titulo}>Datos de Usuario</p>
       <div className={styles.pedido__datos__usuario}>

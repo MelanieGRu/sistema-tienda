@@ -16,10 +16,11 @@ import {
   useMantineTheme,
   Divider,
 } from "@mantine/core";
+import { IconBellRinging } from "@tabler/icons";
 
 const Layout = ({ children, setProductoInfo }) => {
   // Router para determinar en qué página nos encontramos
-  const { user, logout } = useAuth();
+  const { user, logout, mostrarCampana } = useAuth();
   const router = useRouter();
 
   // Variables para la responsividad del AppShell
@@ -80,7 +81,12 @@ const Layout = ({ children, setProductoInfo }) => {
                   : styles.appshell__boton
               }
             >
-              Carrito
+              <div className={styles.texto__icono}>
+                Carrito
+                {mostrarCampana == false ? null : (
+                  <IconBellRinging size={35} className={styles.icono} />
+                )}
+              </div>
             </div>
           </Link>
 
@@ -144,9 +150,11 @@ const Layout = ({ children, setProductoInfo }) => {
             </MediaQuery>
             {/* Contenido del header de
             AppShell */}
-            <Text className={styles.layout__header__texto}>
-              <Link href="/">Sistema de Pedidos</Link>
-            </Text>
+            <div className={styles.header__contenido}>
+              <Text className={styles.layout__header__texto}>
+                <Link href="/">Sistema de Pedidos</Link>
+              </Text>
+            </div>
           </div>
         </Header>
       }

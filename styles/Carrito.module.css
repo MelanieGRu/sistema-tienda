@@ -10,3 +10,7 @@
 .textarea {
   width: 30rem;
 }
+
+.titulo {
+  color: var(--principal);
+}

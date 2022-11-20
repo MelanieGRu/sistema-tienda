@@ -12,7 +12,7 @@ const Pedidos = ({ datos }) => {
 
   console.log(datos);
 
-  if (!datos) {
+  if (datos.length == 0) {
     return (
       <Layout>
         <h1 className={styles.titulo}>No Existen Pedidos</h1>

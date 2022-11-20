@@ -55,3 +55,23 @@
   color: var(--blanco);
   font-family: var(--fuente-radio);
 }
+
+.header__contenido {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.texto__icono {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.icono {
+  background-color: rgba(60, 179, 113, 0.5);
+  padding: 0.2rem;
+  border-radius: 3rem;
+}
